@@ -18,6 +18,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     //Métodos necesarios para manejar localidades
     let locationManager = CLLocationManager()
     
+    //Es un objeto
+    let location = CLLocation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,6 +58,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let region = MKCoordinateRegion(center: mapa.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009))
         
         mapa.setRegion(region, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(location)
     }
 
 }
